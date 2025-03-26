@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/guiil/IMD0029-ESTRUTURA-DE-DADOS-BASICAS/exercicios_linguagem",
-      "program": "c:/Users/guiil/IMD0029-ESTRUTURA-DE-DADOS-BASICAS/exercicios_linguagem/build/Debug/outDebug",
+      "cwd": "c:/Users/guiil/IMD0029/unidade-I/lista-de-exercicios-a01",
+      "program": "c:/Users/guiil/IMD0029/unidade-I/lista-de-exercicios-a01/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
