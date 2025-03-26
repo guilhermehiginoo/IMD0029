@@ -22,12 +22,12 @@ int main()
     int numbers = 1;
     int sum = 0;
 
-    printf("Insert value for n\n");
+    printf("Insert value for n:\n");
     scanf("%d", &n);
 
     int result = evenNumbers(n, count, numbers, sum);
 
-    printf("%d", result);
+    printf("Sum of the first %d even numbers: %d", n, result);
 
     return 0;
 }
