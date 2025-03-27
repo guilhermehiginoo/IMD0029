@@ -13,10 +13,10 @@ int sumOfDigits(char* str, int position, int sum) {
 int main()
 {
     int n;
-    printf("Insert number:\n");
+    printf("Insert a number:\n");
     scanf("%d", &n);
 
-    char str[20];
+    char str[200];
     sprintf(str, "%d", n);
 
     int result = sumOfDigits(str, 0, 0);
