@@ -1,54 +1,43 @@
 #include <stdio.h>
-#include <stdbool.h>
+#include <string.h>
 #include "lista.h"
 
-void inicializa_lista(Lista *l) {
-    l->numAlunos = 0;
-}
-
-int tamanho(Lista *l) {
-    return l->numAlunos;
-}
-
-int busca(Lista *l, int matricula) {
-    for (int i = 0; i < l->numAlunos; i++) {
-        if (matricula == l->dados[i].matricula)
+int posicao(const Lista *l, int mat)
+{
+    for (int i = 0; i < l->n; ++i)
+        if (l->v[i].matricula == mat)
             return i;
-    }
     return -1;
 }
 
-void exibe_lista(Lista *l) {
-    printf("Lista de Alunos:\n");
-    for (int i = 0; i < l->numAlunos; i++) {
-        printf("Matrícula: %d, Nome: %s, Nota: %.2f\n",
-               l->dados[i].matricula, l->dados[i].nome, l->dados[i].nota);
-    }
-    if (l->numAlunos == 0) {
-        printf("A lista está vazia.\n");
-    }
+void lista_init(Lista *l)
+{
+    l->n = 0;
 }
 
-bool insere(Lista *l, Dados d, int pos) {
-    if ((l->numAlunos == MAX) || (pos < 0) || (pos > l->numAlunos))
+bool lista_add(Lista *l, Aluno a)
+{
+    if (l->n == MAX || posicao(l, a.matricula) != -1)
         return false;
-    for (int j = l->numAlunos; j > pos; j--)
-        l->dados[j] = l->dados[j - 1];
-    l->dados[pos] = d;
-    l->numAlunos++;
+    l->v[l->n++] = a;
     return true;
 }
 
-bool remove(int matricula, Lista *l) {
-    int pos = busca(l, matricula);
-    if (pos == -1)
+bool lista_del(Lista *l, int mat)
+{
+    int p = posicao(l, mat);
+    if (p == -1)
         return false;
-    for (int j = pos; j < l->numAlunos - 1; j++)
-        l->dados[j] = l->dados[j + 1];
-    l->numAlunos--;
+    memmove(&l->v[p], &l->v[p + 1], (l->n - p - 1) * sizeof(Aluno));
+    l->n--;
     return true;
 }
 
-void reinicializa_lista(Lista *l) {
-    l->numAlunos = 0;
+void lista_print(const Lista *l)
+{
+    puts("\n--- LISTA DE ALUNOS ---");
+    for (int i = 0; i < l->n; ++i)
+        printf("%d | %-40s | %.2f\n",
+               l->v[i].matricula, l->v[i].nome, l->v[i].nota);
+    puts("-----------------------\n");
 }

@@ -1,26 +1,19 @@
 #ifndef LISTA_H
 #define LISTA_H
+
+#include <stdbool.h>
+#include "aluno.h"
+
 #define MAX 100
 
-typedef struct
-{
-    int matricula;
-    char nome[50];
-    float nota;
-} Dados;
-
-typedef struct
-{
-    Dados dados[MAX];
-    int numAlunos;
+typedef struct {
+    Aluno v[MAX];
+    int n;
 } Lista;
 
-void inicializa_lista(Lista *l);
-int tamanho(Lista *l);
-int busca(Lista *l, int ch);
-void exibe_lista(Lista *l);
-bool insere(Lista *l, Dados d, int pos);
-bool remove(int ch, Lista *l);
-void reinicializa_lista(Lista *l);
+void lista_init(Lista *l);
+bool lista_add(Lista *l, Aluno a);
+bool lista_del(Lista *l, int matricula);
+void lista_print(const Lista *l);
 
 #endif
