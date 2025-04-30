@@ -1,5 +1,5 @@
 main: main.o lista.o
-	gcc -Wall -Wextra -std=c11  main.o lista.o -o main  
+	gcc -Wall -Wextra -std=c11 main.o lista.o -o main  
 
 main.o: main.c
 	gcc -c main.c
