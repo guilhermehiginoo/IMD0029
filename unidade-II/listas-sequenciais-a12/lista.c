@@ -35,7 +35,7 @@ bool lista_del(Lista *l, int matricula) {
 
 void lista_print(const Lista *l) {
     for (int i = 0; i < l->n; i++) {
-        printf("Matrícula: %d, Nome: %s, Nota: %.2f\n",
+        printf("| Matrícula: %d| Nome: %s | Nota: %.2f\n |",
                l->v[i].matricula, l->v[i].nome, l->v[i].nota);
     }
 }
